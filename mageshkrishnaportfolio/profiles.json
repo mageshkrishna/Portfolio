@@ -1,0 +1,27 @@
+{
+  "profiles": [
+    {
+      "display_name": "GPU server",
+      "slug": "gpu",
+      "default": false,
+      "kubespawner_override": {
+        "cpu_guarantee": 2,
+        "cpu_limit": 4,
+        "mem_guarantee": "4G",
+        "mem_limit": "8G",
+        "extra_resource_limits": {"nvidia.com/gpu": "1"}
+      }
+    },
+    {
+      "display_name": "High-memory server",
+      "slug": "high-mem",
+      "default": false,
+      "kubespawner_override": {
+        "cpu_guarantee": 1,
+        "cpu_limit": 2,
+        "mem_guarantee": "16G",
+        "mem_limit": "32G"
+      }
+    }
+  ]
+}
