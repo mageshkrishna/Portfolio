@@ -4,14 +4,6 @@
       "display_name": "GPU server",
       "slug": "gpu",
       "default": false,
-      "data_description": "A high-performance server designed for GPU-intensive tasks.",
-      "sizes": {
-        "cpu_guarantee": "2 vCPUs",
-        "cpu_limit": "4 vCPUs",
-        "mem_guarantee": "4GB",
-        "mem_limit": "8GB",
-        "extra_resource_limits": "1 NVIDIA GPU"
-      },
       "kubespawner_override": {
         "cpu_guarantee": 2,
         "cpu_limit": 4,
@@ -26,13 +18,6 @@
       "display_name": "High-memory server",
       "slug": "high-mem",
       "default": false,
-      "data_description": "A server optimized for memory-intensive tasks, suitable for large datasets.",
-      "sizes": {
-        "cpu_guarantee": "1 vCPU",
-        "cpu_limit": "2 vCPUs",
-        "mem_guarantee": "16GB",
-        "mem_limit": "32GB"
-      },
       "kubespawner_override": {
         "cpu_guarantee": 1,
         "cpu_limit": 2,
