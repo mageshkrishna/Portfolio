@@ -1,29 +1,45 @@
-{
-  "profiles": [
+[
     {
-      "display_name": "GPU server",
-      "slug": "gpu",
-      "default": false,
-      "kubespawner_override": {
-        "cpu_guarantee": 2,
-        "cpu_limit": 4,
-        "mem_guarantee": "4G",
-        "mem_limit": "8G",
-        "extra_resource_limits": {
-          "nvidia.com/gpu": "1"
+        'display_name': 'Training Env - Python',
+        'slug': 'training-python',
+        'default': True,
+        'kubespawner_override': {
+            'image': 'training/python:label',
+            'cpu_limit': 1,
+            'mem_limit': '512M',
         }
-      }
-    },
-    {
-      "display_name": "High-memory server",
-      "slug": "high-mem",
-      "default": false,
-      "kubespawner_override": {
-        "cpu_guarantee": 1,
-        "cpu_limit": 2,
-        "mem_guarantee": "16G",
-        "mem_limit": "32G"
-      }
+    }, {
+        'display_name': 'Training Env - Datascience',
+        'slug': 'training-datascience',
+        'kubespawner_override': {
+            'image': 'training/datascience:label',
+            'cpu_limit': 4,
+            'mem_limit': '8G',
+        }
+    }, {
+        'display_name': 'DataScience - Small instance',
+        'slug': 'datascience-small',
+        'kubespawner_override': {
+            'image': 'datascience/small:label',
+            'cpu_limit': 10,
+            'mem_limit': '16G',
+        }
+    }, {
+        'display_name': 'DataScience - Medium instance',
+        'slug': 'datascience-medium',
+        'kubespawner_override': {
+            'image': 'datascience/medium:label',
+            'cpu_limit': 48,
+            'mem_limit': '96G',
+        }
+    }, {
+        'display_name': 'DataScience - Medium instance (GPUx2)',
+        'slug': 'datascience-gpu2x',
+        'kubespawner_override': {
+            'image': 'datascience/medium:label',
+            'cpu_limit': 48,
+            'mem_limit': '96G',
+            'extra_resource_guarantees': {"nvidia.com/gpu": "2"},
+        }
     }
-  ]
-}
+]
